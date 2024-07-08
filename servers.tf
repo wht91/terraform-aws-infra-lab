@@ -1,9 +1,3 @@
-# Define a key pair resource
-resource "aws_key_pair" "test" {
-  key_name   = "test"
-  public_key = file("~/.ssh/test.pem.pub")
-}
-
 # Create IAM role for EC2 instances
 resource "aws_iam_role" "ec2_role" {
   name = "EC2Role"
@@ -32,7 +26,7 @@ resource "aws_launch_configuration" "ec2_launch_config" {
   name_prefix          = "EC2LaunchConfig"
   image_id             = "ami-04a81a99f5ec58529" # Specify your AMI ID
   instance_type        = "t2.medium"             # Specify instance type
-  key_name             = aws_key_pair.test.key_name
+  key_name             = "xxxxx"                 # Create you key pair manually
   iam_instance_profile = aws_iam_instance_profile.ec2_instance_profile.name
   security_groups      = [aws_security_group.app_sg.id] # Attach security group
 
