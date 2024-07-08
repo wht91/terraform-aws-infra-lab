@@ -10,7 +10,7 @@ resource "aws_db_subnet_group" "db_subnet_group" {
 
 # Create RDS instance
 resource "aws_db_instance" "database" {
-  identifier                = "test-database" # Name the RDS DB
+  identifier                = "test-database" # Name the RDS identifier
   allocated_storage         = 20
   storage_type              = "gp2"
   engine                    = "mysql"
